@@ -18,6 +18,7 @@ An ESP-IDF project for the ESP32-S3 demonstrating FreeRTOS tasks and a reusable 
 │       ├── include/uptime.h
 │       └── uptime.cpp
 └── test/               # GoogleTest host tests for utils
+    └── googletest/     # GoogleTest (git submodule)
 ```
 
 ## Requirements
@@ -35,8 +36,16 @@ idf.py -p /dev/ttyUSB0 flash monitor
 
 ## Running unit tests
 
+GoogleTest is included as a git submodule. After cloning, initialise it first:
+
+```bash
+git submodule update --init
+```
+
+Then build and run:
+
 ```bash
 cd test
 cmake -B build && cmake --build build
-./build/test_uptime
+./build/tests
 ```
